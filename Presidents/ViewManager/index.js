@@ -14,6 +14,7 @@ function formatItem(item) {
     return '<tr><td>' + item.Name + '</td><td>' + item.Birthday + '</td><td>' + item.Age + '</td><td>' + item.BirthPlace + '</td></tr>';
 }
 
+
 function find() {
     $("#presidentsResultTable tr").empty();
     var name = $('#presidentName').val();

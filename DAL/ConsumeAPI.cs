@@ -33,7 +33,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("DAL. GetPresidents. Error:" + ex);
+                throw new Exception("DAL. GetPresidents. Error:" + ex); 
             }
         }
     }
