@@ -1,28 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DAL.Presidents;
 using DTO;
-using DAL.Presidents;
+using System;
+using System.Collections.Generic;
 
 namespace BLL
 {
-    public class BLLPresident : IOperations<DTO.President>
+    public class BLLPresident : IOperations<President>
     {
-        PresidentRepository president;
+        PresidentRepository _repository;
         
         public BLLPresident()
         {
-            president = new PresidentRepository();                
+            this._repository = new PresidentRepository();                
         }
 
         public List<President> GetAll()
         {
             try
             {
-                var presidents = president.GetAll();
-                
-                // Calcular el edad
+                var presidents = _repository.GetAll();
+                // Calcular edad
                 presidents.ForEach(e=>e.Age = new PresidentOperationsFactory().CreateSalesOperations(e).getAge(e) );
-
                 return presidents;
             }
             catch (Exception ex)
@@ -37,8 +35,12 @@ namespace BLL
             {
                 if (!string.IsNullOrEmpty(name))
                 {
-                    var presid = president.GetAll().Find(e => e.Name.Equals(name));
-                    return presid;
+                    var president = _repository.GetAll().Find(p => p.Name.ToLower().Contains(name.ToLower()));
+                    if (president != null)
+                    {
+                        president.Age = new PresidentOperationsFactory().CreateSalesOperations(president).getAge(president);
+                    }
+                    return president;
                 }
                 else
                 {

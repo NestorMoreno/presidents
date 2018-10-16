@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Presidents.App_Start;
+using System.Web.Http;
 
 namespace Presidents
 {
@@ -6,6 +7,7 @@ namespace Presidents
     {
         protected void Application_Start()
         {
+            InjectorConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

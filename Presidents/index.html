@@ -9,24 +9,32 @@
     <script src="Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-           
-        </div>
-    </div>
+    
     <div class="container body-content">
-
-        <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h3>Search by name</h3>
+                    <form class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input type="text" class="form-control" id="presidentName" />
+                        </div>
+                        <input type="button" class="btn btn-info" value="Get Presidents" onclick="find();" />
+                    </form>
+                    <table id="presidentsResultTable" class="table table-responsive table-bordered">
+                        <tbody>
+                            <tr></tr>
+                        </tbody>
+                        <tr></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
             <div class="row">
-                <div class="col-md-12">
-                    <h2>Presidents</h2>
+                <div class="col-md-12 jumbotron">
+                    <h3>US Presidents List</h3>
                     <table id="presidentsMainTable" class="table table-responsive table-bordered" width="100%">
                         <thead>
                             <tr>
@@ -42,25 +50,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div>
-                        <h3>Search by name</h3>
-                        <input type="text" class="form-control" id="presidentName" />
-                        <input type="button" class="btn btn-default" value="Get Presidents" onclick="find();" />
-
-                        <table id="presidentsResultTable" class="table table-responsive table-bordered">
-                            <tbody>
-                                <tr></tr>
-                            </tbody>
-                            <tr></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-           
         </div>
-
         <hr />
         <footer>
             <p></p>

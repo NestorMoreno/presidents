@@ -1,33 +1,37 @@
 ﻿using BLL;
-using System.Collections.Generic;
-using System.Web.Http;
 using DTO;
 using System;
+using System.Collections.Generic;
+using System.Web.Http;
 
 namespace Presidents.Controllers
 {
     public class PresidentController : ApiController
     {
-        BLL.BLLPresident president = new BLLPresident();
+        private IOperations<President> _president;
+        
+        public PresidentController(IOperations<President> president)
+        {
+            this._president = new BLLPresident();
+        }
 
         public IEnumerable<President> GetAll()
         {
             try
             {
-                return president.GetAll();
+                return _president.GetAll();
             }
             catch (Exception ex)
             {
                 throw new Exception("PresidentController. Error en GetAll. Error:" + ex.Message);
             }
-            
         }
 
-        public IHttpActionResult GetPresident(string name)
+        public IHttpActionResult GetPresidentByName(string id)
         {
             try
             {
-                var president = this.president.GetByName(name);
+                var president = this._president.GetByName(id);
 
                 if (president == null)
                 {

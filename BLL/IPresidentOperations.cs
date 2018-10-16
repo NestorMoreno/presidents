@@ -1,11 +1,9 @@
-﻿using System;
-using DTO;
+﻿using DTO;
 
 namespace BLL
 {
     public interface IPresidentOperations
     {
         int getAge(President president);
-
     }
 }

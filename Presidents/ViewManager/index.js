@@ -11,9 +11,17 @@ $(document).ready(function () {
 });
 
 function formatItem(item) {
-    return '<tr><td>' + item.Name + '</td><td>' + item.Birthday + '</td><td>' + item.Age + '</td><td>' + item.BirthPlace + '</td></tr>';
+    return '<tr><td>' + item.Name + '</td><td>' + formatDate(new Date(item.Birthday)) + '</td><td>' + item.Age + '</td><td>' + item.BirthPlace + '</td></tr>';
 }
 
+function formatDate(date) {
+    var monthNames = [ "January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
 
 function find() {
     $("#presidentsResultTable tr").empty();
