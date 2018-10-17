@@ -15,7 +15,7 @@ namespace DAL
 
         public ConsumeAPI()
         {
-            endpoint = "http://www.mocky.io/v2/5bc0f9a53200007c0021abc5";
+            endpoint = "http://presidents-globant--api.azurewebsites.net/api/contacts";
         }
 
         public List<President> GetPresidents()
